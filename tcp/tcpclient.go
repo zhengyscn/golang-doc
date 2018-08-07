@@ -28,11 +28,17 @@ func ConnectTcpServer(t *utils.ServerInfo) {
 
 }
 
+func Packet(msg []byte) []byte {
+	s := make([]byte, 0)
+	return append(append(s, utils.IntToByte(len(msg))...), msg...)
+}
+
 func sender(conn net.Conn) {
 	for i := 0; i < 300; i++ {
 		data := fmt.Sprintf("{\"ID\":%d, \"Name\":\"zhengyscn-%d\"}", i, i)
 		// Write
-		n, err := conn.Write([]byte(data))
+		//n, err := conn.Write([]byte(data)) //TODO
+		n, err := conn.Write(Packet([]byte(data))) //TODO
 		if err != nil {
 			log.Println(err)
 			break

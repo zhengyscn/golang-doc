@@ -44,13 +44,38 @@ func handleConn(conn net.Conn, wg *sync.WaitGroup) {
 	for {
 		var buf = make([]byte, 1024)
 		// Read
-		n, err := conn.Read(buf)
+		n, err := conn.Read(buf) // ?
 		if err != nil {
 			log.Println(err)
 			return
 		}
 		fmt.Println(n, string(buf[:n]))
 	}
+
+}
+
+func render(ch chan []byte) {
+	for {
+		select {
+		case msg := <-ch:
+			fmt.Println(msg)
+		}
+	}
+}
+
+func unPacket(buffer []byte, ch chan []byte) []byte {
+	length := len(buffer)
+	var i int
+	for i = 0; i < length; i++ {
+		if length < i+4 {
+			break
+		}
+		msgLength := utils.ByteToInt(buffer[i : i+4])
+	}
+	if i == length {
+		return make([]byte, 0)
+	}
+	return buffer[i:]
 
 }
 
