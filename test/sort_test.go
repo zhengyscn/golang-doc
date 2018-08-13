@@ -1,11 +1,30 @@
 package test
 
-import "testing"
+import (
+	"math/rand"
+	"testing"
+)
 
 func TestBubbleSort(t *testing.T) {
-	items := []int{2, 1, 5, 3}
-	BubbleSort(items)
+	for i := 0; i < 10; i++ {
+		items := make([]int, 10)
+		for j := 0; j < 50; j++ {
+			items = append(items, rand.Intn(100))
+		}
+		t.Log("before: ", items)
+		BubbleSort(items)
+		t.Log("after: ", items)
+	}
+}
 
-	t.Logf("Before sort items, %s", items)
-	t.Logf("After sort items, %s", items)
+func TestQuickSort(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		items := make([]int, 10)
+		for j := 0; j < 50; j++ {
+			items = append(items, rand.Intn(100))
+		}
+		t.Log("before: ", items)
+		QuickSort(items)
+		t.Log("after: ", items)
+	}
 }
