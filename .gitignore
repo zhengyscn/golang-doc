@@ -1,2 +1,7 @@
 .idea/
 *.out
+
+/goprofex
+/goprofex.test
+/cpu.pprof
+/mem.pprof
