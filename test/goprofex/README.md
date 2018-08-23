@@ -96,5 +96,5 @@ ROUTINE ======================== main.leftpadHandler in /home/monkey/go/src/gith
          .          .     45:		return
          .          .     46:	}
          .          .     47:}
-(pprof) 
+(pprof)
 ```

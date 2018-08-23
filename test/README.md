@@ -24,3 +24,9 @@ Time per request:       5908.457 [ms] (mean)        // 客户端平均响应等�
 Time per request:       1181.691 [ms] (mean, across all concurrent requests)    // 服务器的处理时间
 Transfer rate:          195.92 [Kbytes/sec] received
 ```
+
+## Bench
+```
+// 生成火焰兔
+$ go-torch -u http://localhost:8080/debug/pprof/profile -t 30 -f '1.svg'
+```
