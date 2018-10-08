@@ -9,6 +9,8 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	log.Println(r.Method)
+	log.Println(r.URL)
 	fmt.Fprint(w, "Welcome!\n")
 }
 
