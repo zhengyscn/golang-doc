@@ -84,11 +84,37 @@ func jsonRecv(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func readHtml(w http.ResponseWriter, r *http.Request) {
+	if bytes, err := ioutil.ReadFile("templates/index.html"); err == nil {
+		w.WriteHeader(http.StatusOK)
+		w.Write(bytes)
+	} else {
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request."))
+	}
+}
+
+func statusMonitor(w http.ResponseWriter, r *http.Request) {
+	/*
+		Todo
+	*/
+	w.WriteHeader(http.StatusNotImplemented)
+	w.Write([]byte("no such service."))
+}
+
+func httpRedirect(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Location", "/html")
+	w.WriteHeader(http.StatusFound)
+}
+
 func main() {
 	http.HandleFunc("/", bodyRecv)
 	http.HandleFunc("/form/v1", handForm_v1)
 	http.HandleFunc("/form/v2", handForm_v2)
 	http.HandleFunc("/upload", uploadFile)
 	http.HandleFunc("/json", jsonRecv)
+	http.HandleFunc("/html", readHtml)
+	http.HandleFunc("/status", statusMonitor)
+	http.HandleFunc("/redirect", httpRedirect)
 	http.ListenAndServe(":8080", nil)
 }
