@@ -8,4 +8,4 @@ https://golang.org/
     - [http](./http)
 
 - Project
-    - [worker-server](./worker-server)
+    - [chitchat](./chitchat)
