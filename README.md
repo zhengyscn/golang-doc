@@ -6,6 +6,7 @@ https://golang.org/
     - [udp](./udp)
     - [test](./test)
     - [http](./http)
+    - [logging](./log)
 
 - Project
     - [chitchat](./chitchat)
