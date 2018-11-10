@@ -6,9 +6,9 @@ import (
 )
 
 type User struct {
-	Username string
-	Age      int
-	Sex      string
+	Username string `json:"username"`
+	Age      int    `json:"age"`
+	Sex      string `json:"sex"`
 }
 
 /*
@@ -23,20 +23,25 @@ func updateInterfaceValue(a interface{}) { // 必须传指针类型才能修改�
 	v := reflect.ValueOf(a)
 	t := v.Type()
 	switch t.Kind() {
+	case reflect.Struct:
+		fieldNum := t.NumField()
+		//fmt.Printf("fieldNum %d\n", fieldNum)
+		for i := 0; i < fieldNum; i++ {
+			field := t.Field(i)
+			vfield := v.Field(i)
+			fmt.Printf("index: [%d], name: %s, json key: %s, val:%v\n", i, field.Name, field.Tag.Get("json"), vfield.Interface())
+			if i == 2 {
+				vfield.Elem().SetString("male xxx")
+			}
+
+		}
 	case reflect.Ptr:
 		t1 := v.Elem().Type() // 指针指向变量的类型
 		switch t1.Kind() {
 		case reflect.Int:
-			fmt.Println("Int")
 			v.Elem().SetInt(200)
 		case reflect.String:
 			v.Elem().SetString("nihao")
-		case reflect.Struct:
-			fieldNum := t.NumField()
-			fmt.Printf("fieldNum %d\n", fieldNum)
-			//for i := 0; i < fieldNum; i++ {
-			//	fmt.Println(t.Field(i))
-			//}
 		}
 	}
 }
@@ -49,9 +54,9 @@ func main() {
 		Age:      28,
 		Sex:      "male",
 	}
-	fmt.Printf("x=%d, y=%v, u=%v\n", x, y, u)
+	fmt.Printf("x=%d, y=%v, u=%v\n\n", x, y, u)
 	updateInterfaceValue(&x)
 	updateInterfaceValue(&y)
-	updateInterfaceValue(&u)
+	updateInterfaceValue(u)
 	fmt.Printf("x=%d, y=%v, u=%v\n", x, y, u)
 }
