@@ -2,6 +2,7 @@
 https://golang.org/
 
 - Basic
+    - [fmt](./fmt)
     - [tcp](./tcp)
     - [udp](./udp)
     - [test](./test)
@@ -9,7 +10,5 @@ https://golang.org/
     - [http](./http)
     - [logging](./log)
     - [reflect](./reflect)
-    - [typeConvert](./type_convert)
+    - [type convert](./type_convert)
 
-- Project
-    - [chitchat](./chitchat)
