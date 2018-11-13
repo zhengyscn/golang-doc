@@ -76,6 +76,10 @@ func modify_ptr_v2(x *int) {
 	*x++
 }
 
+func ptr_init() {
+
+}
+
 func main() {
 	//example_v1()
 	//example_v2()
