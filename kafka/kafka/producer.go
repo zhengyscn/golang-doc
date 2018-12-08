@@ -8,7 +8,7 @@ import (
 
 var producer sarama.SyncProducer
 
-func Init(brokers []string) (err error) {
+func InitProducer(brokers []string) (err error) {
 	config := sarama.NewConfig()
 
 	config.Producer.RequiredAcks = sarama.WaitForAll
@@ -23,9 +23,9 @@ func Init(brokers []string) (err error) {
 	return
 }
 
-func Send(lineStr string) {
+func Send(lineStr string, topic string) {
 	msg := &sarama.ProducerMessage{
-		Topic: "important",
+		Topic: topic,
 		Value: sarama.StringEncoder(lineStr),
 	}
 	partition, offset, err := producer.SendMessage(msg)
@@ -36,6 +36,6 @@ func Send(lineStr string) {
 	fmt.Printf("Message is stored in partition(%d)/offset(%d)\n", partition, offset)
 }
 
-func Kclosed() {
+func ProducerClose() {
 	producer.Close()
 }

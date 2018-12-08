@@ -10,15 +10,16 @@ import (
 func main() {
 	var (
 		err      error
-		filename string = "/tmp/nginx.log"
+		topic    string   = "important"
+		filename string   = "/tmp/nginx.log"
+		brokers  []string = []string{"localhost:9092"}
 	)
 
-	brokers := []string{"localhost:9092"}
-	err = kafka.Init(brokers)
+	err = kafka.InitProducer(brokers)
 	if err != nil {
 		fmt.Sprintf("init kafka err: %v", err)
 	}
-	defer kafka.Kclosed()
+	defer kafka.ProducerClose()
 	fmt.Println("init kafka succ.")
 
 	err = tailf.Init(filename)
@@ -32,7 +33,7 @@ func main() {
 	for {
 		select {
 		case msg := <-msgChan:
-			kafka.Send(msg)
+			kafka.Send(msg, topic)
 		}
 	}
 
