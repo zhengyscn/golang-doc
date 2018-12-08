@@ -16,9 +16,13 @@ Go Version: go1.10.4
 Go OS/Arch: linux/amd64
 
 
-$ etcd --config-file=conf/conf.yml
+$ etcd --config-file=conf/conf.yml or etcd --data-dir=/tmp/data/
 
 $ etcdctl put /message hello
 $ etcdctl get /message
 $ etcdctl del /message
+
+注意： 使用go.etcd.io/etcd/clientv3这个包
 ```
+
+

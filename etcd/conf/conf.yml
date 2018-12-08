@@ -1,6 +1,6 @@
 name: etcd-1
 data-dir: /tmp/data
-listen-client-urls: http://10.0.2.15:2379,http://127.0.0.1:2379
-advertise-client-urls: http://10.0.2.15:2379,http://127.0.0.1:2379
-listen-peer-urls: http://10.0.2.15:2380
-initial-advertise-peer-urls: http://10.0.2.15:2380
+listen-client-urls: http://127.0.0.1:2379
+advertise-client-urls: http://127.0.0.1:2379
+listen-peer-urls: http://127.0.0.1:2380
+initial-advertise-peer-urls: http://127.0.0.1:2380
