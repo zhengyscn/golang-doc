@@ -15,4 +15,5 @@ https://golang.org/
 
 - Project
     - [kafka](./kafka)
+    - [etcd](./etcd)
 
