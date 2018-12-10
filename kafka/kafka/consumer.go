@@ -25,7 +25,7 @@ func InitConsumer(brokers []string) (err error) {
 
 func Consumer(topic string) (err error) {
 	// How to decide partition, is it fixed value...?
-	consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetNewest)
+	pt, err := master.ConsumePartition(topic, 0, sarama.OffsetNewest)
 	if err != nil {
 		return
 	}
@@ -33,18 +33,14 @@ func Consumer(topic string) (err error) {
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, os.Interrupt)
 
-	// Count how many message processed
-	msgCount := 0
-
 	// Get signnal for finish
 	doneCh := make(chan struct{})
 	go func() {
 		for {
 			select {
-			case err := <-consumer.Errors():
+			case err := <-pt.Errors():
 				fmt.Println(err)
-			case msg := <-consumer.Messages():
-				msgCount++
+			case msg := <-pt.Messages():
 				fmt.Println("Received messages", string(msg.Key), string(msg.Value))
 			case <-signals:
 				fmt.Println("Interrupt is detected")
@@ -54,7 +50,6 @@ func Consumer(topic string) (err error) {
 	}()
 
 	<-doneCh
-	fmt.Println("Processed", msgCount, "messages")
 	return
 }
 

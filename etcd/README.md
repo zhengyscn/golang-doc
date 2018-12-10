@@ -21,6 +21,8 @@ $ etcd --config-file=conf/conf.yml or etcd --data-dir=/tmp/data/
 $ etcdctl put /message hello
 $ etcdctl get /message
 $ etcdctl del /message
+$ etcdctl --endpoints=127.0.0.1:2379  watch /zhengyscn/192.168.1.100/config
+
 
 注意： 使用go.etcd.io/etcd/clientv3这个包
 ```

@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/zhengyscn/golang-doc/etcd/etcd"
-	"go.etcd.io/etcd/clientv3"
 )
 
 func main() {
@@ -35,8 +34,8 @@ func main() {
 	for _, kv := range resp.Kvs {
 		fmt.Printf("k:%s, v:%s\n", kv.Key, kv.Value)
 	}
-
-	respChan := client.Watch(context.Background(), "/zhengyscn/192.168.1.100/config", clientv3.WithPrefix())
+	fmt.Printf("Watch ...\n")
+	respChan := client.Watch(context.Background(), "/zhengyscn/192.168.1.100/config")
 	for {
 		select {
 		case msg := <-respChan:
