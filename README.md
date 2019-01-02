@@ -12,6 +12,7 @@ https://golang.org/
     - [reflect](./reflect)
     - [type convert](./type_convert)
     - [context](./context)
+    - [channel](./channel)
 
 - Project
     - [kafka](./kafka)
