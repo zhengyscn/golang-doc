@@ -9,6 +9,8 @@ import (
     channel 信道
     1. 无缓冲区的channel不负责存储数据，只负责数据的流通；
     2. 无缓冲区的channel顺序是先进先出；
+    3. 带缓冲区的channel顺序是先进先出；
+    4. 带缓冲区的负责存储数据和数据流通；
 
 */
 
@@ -111,10 +113,10 @@ func pipe_buf_chan3()  {
 
 
 func main()  {
-    //pipe_chan1()
-    //pipe_chan2()
-    //pipe_chan3()
-    //pipe_buf_chan1()
-    //pipe_buf_chan2()
+    pipe_chan1()
+    pipe_chan2()
+    pipe_chan3()
+    pipe_buf_chan1()
+    pipe_buf_chan2()
     pipe_buf_chan3()
 }
