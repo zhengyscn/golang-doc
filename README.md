@@ -2,7 +2,6 @@
 https://golang.org/
 
 - Basic
-    - [fmt](./fmt)
     - [tcp](./tcp)
     - [udp](./udp)
     - [test](./test)

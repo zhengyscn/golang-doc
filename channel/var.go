@@ -44,9 +44,8 @@ func chan2()  {
     }
     fmt.Println(stu2)
 
-
-
 }
+
 
 func main()  {
     chan1()
