@@ -13,6 +13,7 @@ https://golang.org/
     - [context](./context)
     - [goroutine](./goroutine)
     - [channel](./channel)
+    - [panic](./panic)
 
 - Project
     - [kafka](./kafka)
