@@ -14,6 +14,7 @@ https://golang.org/
     - [goroutine](./goroutine)
     - [channel](./channel)
     - [panic](./panic)
+    - [interface](./interface)
 
 - Project
     - [kafka](./kafka)
