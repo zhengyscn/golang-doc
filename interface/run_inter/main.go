@@ -14,6 +14,12 @@ type Carer interface {
 	DiDi()
 }
 
+// 自行车
+type Bicycle interface {
+	// 车轮
+	Wheel()
+}
+
 type BMW struct {
 	Name string
 }
@@ -30,18 +36,21 @@ func (this *BMW) Run() {
 }
 
 func (this *BMW) DiDi() {
-	for {
-		fmt.Println("DiDi")
-		time.Sleep(time.Second * 1)
-	}
+	fmt.Println("DiDi")
 }
 
+func (this *BMW) Wheel() {
+	fmt.Println("wheel")
+}
 
 func main() {
 	var car Carer
+	var bicycle Bicycle
 	var bmw = BMW{Name: "baoma"}
 	car = &bmw
 	car.DiDi()
-
+	fmt.Println("------ car ------")
+	bicycle = &bmw
+	bicycle.Wheel()
 
 }
