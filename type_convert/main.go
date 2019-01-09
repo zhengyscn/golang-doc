@@ -4,6 +4,7 @@ import "fmt"
 
 /*
 	类型断言
+	type assets
 */
 
 func main() {
