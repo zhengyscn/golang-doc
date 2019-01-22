@@ -17,6 +17,7 @@ https://golang.org/
     - [interface](./interface)
     - [json](./json)
     - [file](./file)
+    - [balance](./balance)
 
 - Project
     - [kafka](./kafka)
