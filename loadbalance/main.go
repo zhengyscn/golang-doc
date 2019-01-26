@@ -17,12 +17,19 @@ func main() {
 		instances = append(instances, inst)
 	}
 
-	fmt.Printf("instances:%v\n", instances)
+	var randomBalance = balance.RoundrobinBalance{}
+	var doBalance balance.Balance
 
-	bal := balance.RandomBalance{}
+	// interface 赋值
+	doBalance = &randomBalance // 是否通过指针赋值，取决与randomBalance结构体下的函数
+
 	for {
-		ins, err := bal.DoBalance(instances)
-		fmt.Println(ins, err)
+		ins, err := doBalance.DoBalance(instances)
+		if err != nil {
+			fmt.Errorf("Do balance err:%v\n", err)
+			break
+		}
+		fmt.Println(ins)
 		time.Sleep(time.Second)
 	}
 
