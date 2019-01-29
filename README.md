@@ -24,6 +24,7 @@ https://golang.org/
 - package
     - [sync](./sync)   
     - [sort](./sort)  
+    - [uuid](./uuid)  
 
 - Project
     - [kafka](./kafka)
