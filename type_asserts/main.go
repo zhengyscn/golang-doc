@@ -4,7 +4,7 @@ import "fmt"
 
 /*
 	类型断言
-	type assets
+	type asserts
 */
 
 func main() {

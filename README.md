@@ -9,7 +9,7 @@ https://golang.org/
     - [http](./http)
     - [logging](./log)
     - [reflect](./reflect)
-    - [type convert](./type_convert)
+    - [type asserts](type_asserts)
     - [context](./context)
     - [goroutine](./goroutine)
     - [channel](./channel)
@@ -20,6 +20,9 @@ https://golang.org/
     - [balance interface](./balance)
     - [ticker](./ticker)
     - [redis](./redis)
+    
+- package
+    - [sync](./sync)    
 
 - Project
     - [kafka](./kafka)
