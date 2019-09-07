@@ -29,12 +29,8 @@ https://golang.org/
 - Project
     - [kafka](./kafka)
     - [etcd](./etcd)
-    - [elasticsearch]
     - [chitchat](./chitchat)
     
 - [tools]
     - [go module](./gomodule)
-    
-- Framework
-    - [Beego vs Gin](./framework)
 
